@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgcfymb7cpexi"]
+
+[ext_resource type="Script" uid="uid://c1sltovuydhql" path="res://match_list_entry.gd" id="1_frhpw"]
+
+[node name="MatchListEntry" type="HBoxContainer"]
+custom_minimum_size = Vector2(800, 100)
+offset_right = 800.0
+offset_bottom = 100.0
+theme_override_constants/separation = 20
+script = ExtResource("1_frhpw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="Participants" type="Label" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "GUY VS GUY"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Stipulation" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "STREET FIGHT"
+autowrap_mode = 3
+clip_text = true
+
+[node name="Championship" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(350, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "CHAMPIONSHIP"
+autowrap_mode = 3
+clip_text = true
+
+[node name="Schedule" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 24
+text = "scheduled for
+this show
+date of show"
+clip_text = true
+
+[node name="EditButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 50
+text = "EDIT"

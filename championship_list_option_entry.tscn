@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://btqvkw1jhkuox"]
+
+[ext_resource type="PackedScene" uid="uid://374spyocm1p8" path="res://list_option_entry.tscn" id="1_gnv3a"]
+[ext_resource type="Script" uid="uid://c1hanf1bugwv7" path="res://championship_list_option_entry.gd" id="2_03wgk"]
+
+[node name="ChampionshipListOptionEntry" instance=ExtResource("1_gnv3a")]
+script = ExtResource("2_03wgk")

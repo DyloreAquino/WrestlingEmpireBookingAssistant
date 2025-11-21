@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpfx083rbv1ih"]
+
+[ext_resource type="PackedScene" uid="uid://s4g267ocutf5" path="res://select_menu.tscn" id="1_bcfgh"]
+[ext_resource type="Script" uid="uid://dlo4xxrwca8gy" path="res://character_select_menu.gd" id="2_e0j4c"]
+
+[node name="CharacterSelectMenu" instance=ExtResource("1_bcfgh")]
+script = ExtResource("2_e0j4c")
+
+[node name="Face" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Face" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Faces"
+
+[node name="FlowContainer" type="HFlowContainer" parent="ScrollContainer/VBoxContainer/Face" index="1"]
+custom_minimum_size = Vector2(1005, 0)
+layout_mode = 2
+
+[node name="Heel" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Heel" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Heels"
+
+[node name="FlowContainer" type="HFlowContainer" parent="ScrollContainer/VBoxContainer/Heel" index="1"]
+custom_minimum_size = Vector2(1005, 0)
+layout_mode = 2
+
+[node name="Referree" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Referree" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Referees"
+
+[node name="FlowContainer" type="HFlowContainer" parent="ScrollContainer/VBoxContainer/Referree" index="1"]
+custom_minimum_size = Vector2(1005, 0)
+layout_mode = 2
+
+[node name="Booker" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Booker" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Booker"
+
+[node name="FlowContainer" type="HFlowContainer" parent="ScrollContainer/VBoxContainer/Booker" index="1"]
+custom_minimum_size = Vector2(1005, 0)
+layout_mode = 2

@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="WrestlingEmpireBookingAssistant"
+run/main_scene="uid://b8t5i7bv4nviu"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+DataManager="*res://globals/DataManager.gd"
+CharacterDataManager="*res://globals/CharacterDataManager.gd"
+MatchDataManager="*res://globals/MatchDataManager.gd"
+ShowDataManager="*res://globals/ShowDataManager.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="uid://c0t2d78enf3mc"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

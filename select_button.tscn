@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ymcwjwgk4ppi"]
+
+[ext_resource type="Script" uid="uid://dl4hjhrnbtyrk" path="res://select_button.gd" id="1_80klj"]
+
+[node name="SelectButton" type="Button"]
+custom_minimum_size = Vector2(500, 124)
+theme_override_font_sizes/font_size = 60
+text = "Roman Reigns"
+script = ExtResource("1_80klj")

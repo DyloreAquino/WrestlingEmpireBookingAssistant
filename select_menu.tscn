@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://s4g267ocutf5"]
+
+[ext_resource type="PackedScene" uid="uid://ymcwjwgk4ppi" path="res://select_button.tscn" id="1_6smk5"]
+[ext_resource type="Script" uid="uid://bqgbj43fh8hj1" path="res://select_menu.gd" id="1_prf01"]
+
+[node name="SelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_prf01")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(1005, 1400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -502.5
+offset_top = -700.0
+offset_right = 502.5
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Division" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Division"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Division"
+
+[node name="FlowContainer" type="HFlowContainer" parent="ScrollContainer/VBoxContainer/Division"]
+custom_minimum_size = Vector2(1005, 0)
+layout_mode = 2
+
+[node name="SelectButton" parent="ScrollContainer/VBoxContainer/Division/FlowContainer" instance=ExtResource("1_6smk5")]
+layout_mode = 2
+text = "Option"

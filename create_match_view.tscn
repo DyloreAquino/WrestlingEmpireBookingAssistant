@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwouh7hk8wrto"]
+
+[ext_resource type="Script" uid="uid://cdtdsltbwjakp" path="res://new_participant_button.gd" id="1_dk44u"]
+[ext_resource type="Script" uid="uid://bu5j4psfsulg1" path="res://match_type_option_button.gd" id="1_isboi"]
+[ext_resource type="Script" uid="uid://cqi2ty6dj06tj" path="res://new_stipulation_button.gd" id="2_6xfk8"]
+[ext_resource type="Script" uid="uid://bogmo0dw481mk" path="res://new_championship_button.gd" id="3_oxrrq"]
+
+[node name="CreateMatchView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Participants:"
+
+[node name="Input" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NewParticipantButton" type="Button" parent="VBoxContainer/HBoxContainer/Input"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "NEW
+"
+script = ExtResource("1_dk44u")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Match Type:"
+
+[node name="MatchTypeOption" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+script = ExtResource("1_isboi")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Stipulations:"
+
+[node name="Input" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="NewStipulationButton" type="Button" parent="VBoxContainer/HBoxContainer3/Input"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "NEW"
+script = ExtResource("2_6xfk8")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Championships"
+
+[node name="Input" type="VBoxContainer" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="NewChampionshipButton" type="Button" parent="VBoxContainer/HBoxContainer4/Input"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "NEW"
+script = ExtResource("3_oxrrq")
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/Input/NewParticipantButton" to="VBoxContainer/HBoxContainer/Input/NewParticipantButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer3/Input/NewStipulationButton" to="VBoxContainer/HBoxContainer3/Input/NewStipulationButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer4/Input/NewChampionshipButton" to="VBoxContainer/HBoxContainer4/Input/NewChampionshipButton" method="_on_button_up"]

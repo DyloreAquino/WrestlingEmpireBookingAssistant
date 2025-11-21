@@ -1,0 +1,12 @@
+{
+	"1" : {
+		"first_name" : "Roman",
+		"last_name" : "Reigns",
+		"gender" : "Male",
+		"alignment" : "Face",
+		"injured_for" : 0,
+		"friends" : [],
+		"rivals" : [],
+		"teammates" : []
+	}
+}

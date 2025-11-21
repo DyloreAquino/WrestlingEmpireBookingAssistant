@@ -1,0 +1,12 @@
+{
+	"1" : {
+		"title" : "TV Program",
+		"schedule" : {
+			"week" : 1,
+			"month" : "January" 
+		},
+		"type" : "PPV",
+		"matches" : [],
+		"finished" : false
+	}
+}
