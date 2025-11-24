@@ -1,24 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgcfymb7cpexi"]
+[gd_scene load_steps=4 format=3 uid="uid://dgcfymb7cpexi"]
 
 [ext_resource type="Script" uid="uid://c1sltovuydhql" path="res://match_list_entry.gd" id="1_frhpw"]
 
-[node name="MatchListEntry" type="HBoxContainer"]
-custom_minimum_size = Vector2(800, 100)
-offset_right = 800.0
-offset_bottom = 100.0
-theme_override_constants/separation = 20
-script = ExtResource("1_frhpw")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frhpw"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1674276, 0.20807573, 0.20270583, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhhmw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.40729713, 0.10907545, 0.016953312, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="MatchListEntry" type="Panel" node_paths=PackedStringArray("participants_label", "stipulations_label", "championships_label")]
+custom_minimum_size = Vector2(850, 300)
+offset_right = 800.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_frhpw")
+script = ExtResource("1_frhpw")
+participants_label = NodePath("HBoxContainer/VBoxContainer/ScrollContainer/Participants")
+stipulations_label = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/Stipulation")
+championships_label = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/Championship")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -118.0
+offset_right = 400.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(350, 200)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 120)
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="Participants" type="Label" parent="VBoxContainer/ScrollContainer"]
+[node name="Participants" type="Label" parent="HBoxContainer/VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(500, 120)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -26,43 +68,49 @@ theme_override_font_sizes/font_size = 50
 text = "GUY VS GUY"
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="Stipulation" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(350, 40)
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_font_sizes/font_size = 30
-text = "STREET FIGHT"
-autowrap_mode = 3
-clip_text = true
-
-[node name="Championship" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(350, 40)
+[node name="Stipulation" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(560, 50)
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_font_sizes/font_size = 30
-text = "CHAMPIONSHIP"
-autowrap_mode = 3
-clip_text = true
+theme_override_font_sizes/font_size = 40
+text = "STREET FIGHT, HARDCORE, HKAJBSD, TIAJSDKJBWA"
 
-[node name="Schedule" type="Label" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 80)
+[node name="Championship" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(560, 50)
 layout_mode = 2
-size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 24
-text = "scheduled for
-this show
-date of show"
-clip_text = true
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "CHAMPIONSHIPaduywdasdadwaasdwasd"
 
-[node name="EditButton" type="Button" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="EditButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 50
 text = "EDIT"
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_dhhmw")
+text = "DELETE
+"
+
+[connection signal="button_up" from="HBoxContainer/VBoxContainer2/DeleteButton" to="." method="_on_delete_button_button_up"]

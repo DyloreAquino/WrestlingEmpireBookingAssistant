@@ -10,38 +10,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MainButtonsContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -529.0
-offset_top = -200.0
-offset_right = 529.0
+offset_top = -81.0
 grow_horizontal = 2
 grow_vertical = 0
-metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Button" type="Button" parent="MainButtonsContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 60
 text = "MATCHES"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="Button2" type="Button" parent="MainButtonsContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 60
 text = "SHOWS"
 
-[node name="Button3" type="Button" parent="HBoxContainer"]
+[node name="Button3" type="Button" parent="MainButtonsContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "CHARACTERS"
 
-[node name="MatchListView" parent="." instance=ExtResource("1_tjn2e")]
+[node name="MatchListView" parent="." node_paths=PackedStringArray("main_buttons_cont") instance=ExtResource("1_tjn2e")]
 layout_mode = 1
+main_buttons_cont = NodePath("../MainButtonsContainer")

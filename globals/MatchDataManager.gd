@@ -50,13 +50,13 @@ func delete(id):
 func new_match_template() -> Dictionary:
 	return {
 		"participants": [],
-		"show_id" : 1,
+		"show_id" : -1,
 		"match_type" : "Singles",
 		"stipulations" : [],
 		"championships" : [],
+		"stars": 0,
+		"winner": [],
 		"outcome": {
-			"stars": null,
-			"winner": [],
 			"injury": [],
 			"interruptions": [],
 			"heel_turn": [],

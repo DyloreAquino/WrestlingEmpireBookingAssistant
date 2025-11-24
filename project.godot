@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WrestlingEmpireBookingAssistant"
-run/main_scene="uid://b8t5i7bv4nviu"
+run/main_scene="uid://cp3eh7gxdb8x4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ DataManager="*res://globals/DataManager.gd"
 CharacterDataManager="*res://globals/CharacterDataManager.gd"
 MatchDataManager="*res://globals/MatchDataManager.gd"
 ShowDataManager="*res://globals/ShowDataManager.gd"
+ScreenManager="*res://globals/ScreenManager.gd"
 
 [display]
 

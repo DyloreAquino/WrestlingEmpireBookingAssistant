@@ -10,9 +10,9 @@ func populate_buttons():
 	for division in flow_containers.keys():
 		for id in characters.keys():
 			if characters[id]["alignment"] == str(division):
-				var label = str(characters[id]["first_name"] + characters[id]["last_name"])
+				var label = str(characters[id]["first_name"] + " " + characters[id]["last_name"])
 				var color = get_color(characters[id])
-				add_select_button(characters[id], division, label, color)
+				add_select_button(id, division, label, color)
 
 func get_color(character : Dictionary):
 	if character["alignment"] == "Face":

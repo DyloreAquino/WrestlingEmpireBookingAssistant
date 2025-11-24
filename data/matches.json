@@ -1,38 +1,31 @@
 {
-	"1": {
-		"participants": [[1, 1], [1, 1]],
-		"show_id" : 1,
-		"match_type" : "Handicap",
-		"stipulations" : [],
-		"championships" : [],
+	"6": {
+		"championships": [
+			"World Championship"
+		],
+		"match_type": "Singles",
 		"outcome": {
-			"stars": 0,
-			"winner": [],
+			"face_turn": [],
+			"friend_formation": [],
+			"heel_turn": [],
 			"injury": [],
 			"interruptions": [],
-			"heel_turn": [],
-			"face_turn": [],
-			"team_formation": [],
 			"rivalry_formation": [],
-			"friend_formation": []
-		}
-	},
-	"2": {
-		"participants": [[1], [1]],
-		"show_id" : 1,
-		"match_type" : "Singles",
-		"stipulations" : ["Confrontation"],
-		"championships" : ["World Championship"],
-		"outcome": {
-			"stars": 0,
-			"winner": [],
-			"injury": [],
-			"interruptions": [],
-			"heel_turn": [],
-			"face_turn": [],
-			"team_formation": [],
-			"rivalry_formation": [],
-			"friend_formation": []
-		}
+			"team_formation": []
+		},
+		"participants": [
+			[
+				"1"
+			],
+			[
+				"1"
+			]
+		],
+		"show_id": -1.0,
+		"stars": 0.0,
+		"stipulations": [
+			"Hardcore"
+		],
+		"winner": []
 	}
 }

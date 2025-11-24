@@ -2,21 +2,35 @@ extends Control
 
 var match_list_entry_scene = preload("res://match_list_entry.tscn")
 
+@export var main_cont : Control
+@export var main_vbox : VBoxContainer
+@export var create_match_view : Control
+@export var main_buttons_cont : Control
+
 func _ready():
 	update_match_list()
 
 func update_match_list():
+	MatchDataManager.load_json()
 	var matches = MatchDataManager.matches
 	
-	for c in $ScrollContainer/VBoxContainer.get_children():
-		c.queue_free()
+	for c in main_vbox.get_children():
+		if c is not Button:
+			c.queue_free()
 	
-	for match in matches:
+	var keys = matches.keys()
+	keys.reverse()
+	for match_id in keys:
 		var new_match_list_entry : MatchListEntry = match_list_entry_scene.instantiate()
+		new_match_list_entry.match_id = match_id
 		new_match_list_entry.populate_labels(
-			matches[match]['participants'],
-			matches[match]['stipulations'],
-			matches[match]['championships'],
-			matches[match]['show_id']
+			matches[match_id]['participants'],
+			matches[match_id]['stipulations'],
+			matches[match_id]['championships'],
 		)
-		$ScrollContainer/VBoxContainer.add_child(new_match_list_entry)
+		main_vbox.add_child(new_match_list_entry)
+
+func _on_button_button_up():
+	main_cont.visible = false
+	main_buttons_cont.visible = false
+	create_match_view.visible = true

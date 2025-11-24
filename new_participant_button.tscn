@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3rqnl2rk864b"]
+
+[ext_resource type="Script" uid="uid://cdtdsltbwjakp" path="res://new_participant_button.gd" id="1_p66bi"]
+
+[node name="NewParticipantButton" type="Button" node_paths=PackedStringArray("character_select_menu", "main_container", "lower_buttons")]
+custom_minimum_size = Vector2(200, 70)
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "NEW
+"
+script = ExtResource("1_p66bi")
+character_select_menu = NodePath("")
+main_container = NodePath("")
+lower_buttons = NodePath("")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

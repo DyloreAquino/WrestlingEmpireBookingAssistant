@@ -1,14 +1,19 @@
-extends HBoxContainer
+extends Control
 class_name MatchListEntry
+
+@export var participants_label : Label
+@export var stipulations_label : Label
+@export var championships_label : Label
+
+var match_id = null
 
 func _ready():
 	pass
 
-func populate_labels(participants, stipulations, championships, show_id):
-	$VBoxContainer/ScrollContainer/Participants.text = format_participants(participants)
-	$VBoxContainer/HBoxContainer/VBoxContainer/Stipulation.text = format_stipulations(stipulations)
-	$VBoxContainer/HBoxContainer/VBoxContainer/Championship.text = format_championships(championships)
-	$VBoxContainer/HBoxContainer/Schedule.text = format_schedule(show_id)
+func populate_labels(participants, stipulations, championships):
+	participants_label.text = format_participants(participants)
+	stipulations_label.text = format_stipulations(stipulations)
+	championships_label.text = format_championships(championships)
 
 func format_participants(participants : Array):
 	var names = []
@@ -29,7 +34,7 @@ func format_stipulations(stipulations : Array):
 func format_championships(championships : Array):
 	return ", ".join(championships)
 
-func format_schedule(show_id = null):
-	var show = ShowDataManager.get_show(show_id)
-	var schedule = show["schedule"]
-	return "Week " + str(int(schedule["week"])) + "\n" + "of " + schedule["month"]
+func _on_delete_button_button_up():
+	if match_id:
+		MatchDataManager.delete(match_id)
+	queue_free()

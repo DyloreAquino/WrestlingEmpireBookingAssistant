@@ -1,5 +1,9 @@
 extends Node
 
+func _ready():
+	if OS.has_feature("editor"):
+		DisplayServer.window_set_size(Vector2i(540, 960)) # Half-size, same aspect
+
 func load_json(path: String) -> Variant:
 	if not FileAccess.file_exists(path):
 		return null

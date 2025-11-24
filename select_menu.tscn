@@ -32,7 +32,6 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Division" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Division"]
