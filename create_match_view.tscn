@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwouh7hk8wrto"]
+[gd_scene load_steps=10 format=3 uid="uid://cwouh7hk8wrto"]
 
 [ext_resource type="Script" uid="uid://7kitpncf7jck" path="res://create_match_view.gd" id="1_ij74j"]
 [ext_resource type="Script" uid="uid://bu5j4psfsulg1" path="res://match_type_option_button.gd" id="1_isboi"]
 [ext_resource type="Script" uid="uid://cqi2ty6dj06tj" path="res://new_stipulation_button.gd" id="2_6xfk8"]
 [ext_resource type="PackedScene" uid="uid://d3rqnl2rk864b" path="res://new_participant_button.tscn" id="2_ij74j"]
+[ext_resource type="PackedScene" uid="uid://cuqysxmxlu308" path="res://new_enemy_button.tscn" id="3_a7esd"]
 [ext_resource type="Script" uid="uid://bogmo0dw481mk" path="res://new_championship_button.gd" id="3_oxrrq"]
 [ext_resource type="PackedScene" uid="uid://dpfx083rbv1ih" path="res://character_select_menu.tscn" id="5_55nyw"]
 
@@ -86,17 +87,8 @@ character_select_menu = NodePath("../../../../../CharacterSelectMenu")
 main_container = NodePath("../../../..")
 lower_buttons = NodePath("../../../../../LowerButtons")
 
-[node name="VERSUS" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer/Input"]
+[node name="NewEnemyButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/Input" instance=ExtResource("3_a7esd")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
-text = "VS."
-horizontal_alignment = 1
-
-[node name="NewParticipantButton2" parent="ScrollContainer/VBoxContainer/HBoxContainer/Input" node_paths=PackedStringArray("character_select_menu", "main_container", "lower_buttons") instance=ExtResource("2_ij74j")]
-layout_mode = 2
-character_select_menu = NodePath("../../../../../CharacterSelectMenu")
-main_container = NodePath("../../../..")
-lower_buttons = NodePath("../../../../../LowerButtons")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2

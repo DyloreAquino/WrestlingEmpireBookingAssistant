@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp3eh7gxdb8x4"]
+[gd_scene load_steps=5 format=3 uid="uid://cp3eh7gxdb8x4"]
 
+[ext_resource type="Script" uid="uid://suymfl0p0lna" path="res://main_buttons_container.gd" id="1_7a4el"]
 [ext_resource type="PackedScene" uid="uid://b8t5i7bv4nviu" path="res://match_list_view.tscn" id="1_tjn2e"]
+[ext_resource type="PackedScene" uid="uid://ef0vs6lh3buq" path="res://character_list_view.tscn" id="2_w0p2i"]
+[ext_resource type="PackedScene" uid="uid://beo44l3bbxwyq" path="res://show_list_view.tscn" id="4_kwhh3"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -20,22 +23,23 @@ anchor_bottom = 1.0
 offset_top = -81.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("1_7a4el")
 
-[node name="Button" type="Button" parent="MainButtonsContainer"]
+[node name="Matches" type="Button" parent="MainButtonsContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 60
 text = "MATCHES"
 
-[node name="Button2" type="Button" parent="MainButtonsContainer"]
+[node name="Shows" type="Button" parent="MainButtonsContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 60
 text = "SHOWS"
 
-[node name="Button3" type="Button" parent="MainButtonsContainer"]
+[node name="Characters" type="Button" parent="MainButtonsContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -45,3 +49,17 @@ text = "CHARACTERS"
 [node name="MatchListView" parent="." node_paths=PackedStringArray("main_buttons_cont") instance=ExtResource("1_tjn2e")]
 layout_mode = 1
 main_buttons_cont = NodePath("../MainButtonsContainer")
+
+[node name="CharacterListView" parent="." node_paths=PackedStringArray("main_buttons_cont") instance=ExtResource("2_w0p2i")]
+visible = false
+layout_mode = 1
+main_buttons_cont = NodePath("../MainButtonsContainer")
+
+[node name="ShowListView" parent="." node_paths=PackedStringArray("main_buttons_cont") instance=ExtResource("4_kwhh3")]
+visible = false
+layout_mode = 1
+main_buttons_cont = NodePath("../MainButtonsContainer")
+
+[connection signal="button_up" from="MainButtonsContainer/Matches" to="MainButtonsContainer" method="_on_matches_button_up"]
+[connection signal="button_up" from="MainButtonsContainer/Shows" to="MainButtonsContainer" method="_on_shows_button_up"]
+[connection signal="button_up" from="MainButtonsContainer/Characters" to="MainButtonsContainer" method="_on_characters_button_up"]

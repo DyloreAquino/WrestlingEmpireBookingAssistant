@@ -1,0 +1,138 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciu4n8bkjxfhg"]
+
+[ext_resource type="Script" uid="uid://dqmw2k2rgx51h" path="res://show_list_entry.gd" id="1_plpcr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frhpw"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1674276, 0.20807573, 0.20270583, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhhmw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.40729713, 0.10907545, 0.016953312, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="MatchListEntry" type="Panel" node_paths=PackedStringArray("title_label", "week_label", "month_label", "type_label")]
+custom_minimum_size = Vector2(850, 200)
+offset_right = 850.0
+offset_bottom = 208.0
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_frhpw")
+script = ExtResource("1_plpcr")
+title_label = NodePath("HBoxContainer/VBoxContainer/Title")
+week_label = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Week")
+month_label = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/Month")
+type_label = NodePath("HBoxContainer/VBoxContainer/Type")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.5
+offset_top = -89.5
+offset_right = 376.5
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "RAW"
+vertical_alignment = 1
+clip_text = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Week" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "4th"
+clip_text = true
+
+[node name="of" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "of"
+clip_text = true
+
+[node name="Month" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Month"
+clip_text = true
+
+[node name="Type" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 40
+text = "PPV"
+clip_text = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="EditButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 50
+text = "EDIT"
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_dhhmw")
+text = "DELETE
+"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="Simulate" type="Button" parent="HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(200, 160)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 50
+text = "SIMULATE"
+
+[connection signal="button_up" from="HBoxContainer/VBoxContainer2/DeleteButton" to="." method="_on_delete_button_button_up"]

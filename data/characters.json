@@ -1,12 +1,108 @@
 {
-	"1" : {
-		"first_name" : "Roman",
-		"last_name" : "Reigns",
-		"gender" : "Male",
-		"alignment" : "Face",
-		"injured_for" : 0,
-		"friends" : [],
-		"rivals" : [],
-		"teammates" : []
+	"1": {
+		"alignment": "Face",
+		"first_name": "Roman",
+		"friends": [],
+		"gender": "Male",
+		"injured": false,
+		"last_name": "Reigns",
+		"rivals": [],
+		"teammates": []
+	},
+	"10": {
+		"alignment": "Heel",
+		"first_name": "Jerold",
+		"friends": [],
+		"gender": "Male",
+		"injured": false,
+		"last_name": "Aquino",
+		"rivals": [],
+		"teammates": []
+	},
+	"2": {
+		"alignment": "Heel",
+		"first_name": "Seth",
+		"friends": [],
+		"gender": "Male",
+		"injured": false,
+		"last_name": "Rollins",
+		"rivals": [
+			"1"
+		],
+		"teammates": []
+	},
+	"3": {
+		"alignment": "Face",
+		"first_name": "John",
+		"friends": [
+			"1"
+		],
+		"gender": "Male",
+		"injured": false,
+		"last_name": "Cena",
+		"rivals": [],
+		"teammates": []
+	},
+	"4": {
+		"alignment": "Face",
+		"first_name": "Shawn",
+		"friends": [],
+		"gender": "Male",
+		"injured": true,
+		"last_name": "Michaels",
+		"rivals": [],
+		"teammates": [
+			"3"
+		]
+	},
+	"5": {
+		"alignment": "Face",
+		"first_name": "Liv",
+		"friends": [],
+		"gender": "Female",
+		"injured": false,
+		"last_name": "Morgan",
+		"rivals": [],
+		"teammates": []
+	},
+	"6": {
+		"alignment": "Heel",
+		"first_name": "Naomi",
+		"friends": [],
+		"gender": "Female",
+		"injured": false,
+		"last_name": "",
+		"rivals": [],
+		"teammates": []
+	},
+	"7": {
+		"alignment": "Booker",
+		"first_name": "Dylore",
+		"friends": [],
+		"gender": "Male",
+		"injured": false,
+		"last_name": "",
+		"rivals": [],
+		"teammates": []
+	},
+	"8": {
+		"alignment": "Referree",
+		"first_name": "Michael",
+		"friends": [],
+		"gender": "Male",
+		"injured": false,
+		"last_name": "Cole",
+		"rivals": [],
+		"teammates": []
+	},
+	"9": {
+		"alignment": "Face",
+		"first_name": "Jed",
+		"friends": [],
+		"gender": "Male",
+		"injured": false,
+		"last_name": "Cruz",
+		"rivals": [],
+		"teammates": []
 	}
 }

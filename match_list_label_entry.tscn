@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cht3pvx5ihvt5"]
+
+[ext_resource type="PackedScene" uid="uid://g2wkx2pwo558" path="res://list_label_entry.tscn" id="1_titp4"]
+[ext_resource type="Script" uid="uid://dl1yol51vpum" path="res://match_list_label_entry.gd" id="2_cytgl"]
+
+[node name="MatchListLabelEntry" instance=ExtResource("1_titp4")]
+script = ExtResource("2_cytgl")
+
+[node name="Label" parent="." index="0"]
+clip_contents = true
+custom_minimum_size = Vector2(700, 80)
+clip_text = true
+text_overrun_behavior = 3

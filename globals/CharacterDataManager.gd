@@ -44,7 +44,7 @@ func new_character_template() -> Dictionary:
 		"last_name" : "",
 		"gender" : "NA",
 		"alignment" : "Face",
-		"injured_for" : 0, 
+		"injured" : false,
 		"friends" : [],
 		"rivals" : [],
 		"teammates" : []

@@ -1,12 +1,22 @@
 {
-	"1" : {
-		"title" : "TV Program",
-		"schedule" : {
-			"week" : 1,
-			"month" : "January" 
+	"2": {
+		"finished": false,
+		"matches": [],
+		"schedule": {
+			"month": "November",
+			"week": "3"
 		},
-		"type" : "PPV",
-		"matches" : [],
-		"finished" : false
+		"title": "RAW",
+		"type": "TV Broadcast"
+	},
+	"3": {
+		"finished": false,
+		"matches": [],
+		"schedule": {
+			"month": "August",
+			"week": "3"
+		},
+		"title": "SMACKDOWN",
+		"type": "TV Broadcast"
 	}
 }

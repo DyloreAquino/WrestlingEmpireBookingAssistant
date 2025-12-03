@@ -1,0 +1,200 @@
+[gd_scene load_steps=9 format=3 uid="uid://3tbqxdppnu2x"]
+
+[ext_resource type="Script" uid="uid://c6l541p30qn7k" path="res://create_show_view.gd" id="1_4ewi0"]
+[ext_resource type="Script" uid="uid://b1ou85r56wsc8" path="res://week_option.gd" id="2_au3c5"]
+[ext_resource type="PackedScene" uid="uid://dolkd3wk2015l" path="res://new_match_button.tscn" id="2_k7qjj"]
+[ext_resource type="Script" uid="uid://dkbhqpnsvi6l6" path="res://month_option.gd" id="3_4ewi0"]
+[ext_resource type="PackedScene" uid="uid://dqwxcpeebhe48" path="res://match_select_menu.tscn" id="3_tkcrw"]
+[ext_resource type="Script" uid="uid://bc5lmlqw4ru5v" path="res://type_option.gd" id="4_k7aqs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij74j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0.31764707, 0.08235294, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7esd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3647059, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CreateShowView" type="Control" node_paths=PackedStringArray("title_input", "week_input", "month_input", "type_input", "matches_input")]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_4ewi0")
+title_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer/Title")
+week_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer3/WeekOption")
+month_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer3/MonthOption")
+type_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer4/TypeOption")
+matches_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer6/Matches")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(1000, 1500)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_right = 500.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 300)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "NEW SHOW"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Title:"
+
+[node name="Title" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Input here..."
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Schedule:"
+
+[node name="WeekOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+script = ExtResource("2_au3c5")
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "   of   "
+
+[node name="MonthOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 50
+script = ExtResource("3_4ewi0")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Type:"
+
+[node name="TypeOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+script = ExtResource("4_k7aqs")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "MATCHES FOR THIS SHOW"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Matches" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="NewMatchButton" parent="ScrollContainer/VBoxContainer/HBoxContainer6/Matches" instance=ExtResource("2_k7qjj")]
+layout_mode = 2
+
+[node name="MatchSelectMenu" parent="." instance=ExtResource("3_tkcrw")]
+visible = false
+layout_mode = 1
+
+[node name="LowerButtons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LowerButtons"]
+layout_mode = 2
+
+[node name="DiscardButton" type="Button" parent="LowerButtons/HBoxContainer"]
+custom_minimum_size = Vector2(540, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "DISCARD"
+
+[node name="SaveButton" type="Button" parent="LowerButtons/HBoxContainer"]
+custom_minimum_size = Vector2(540, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij74j")
+text = "SAVE"
+
+[node name="BackButton" type="Button" parent="LowerButtons"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_a7esd")
+text = "BACK"
+
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/HBoxContainer4/TypeOption" to="." method="_on_type_option_item_selected"]
+[connection signal="button_up" from="LowerButtons/HBoxContainer/DiscardButton" to="." method="_on_discard_button_up"]
+[connection signal="button_up" from="LowerButtons/HBoxContainer/SaveButton" to="." method="_on_save_button_up"]
+[connection signal="button_up" from="LowerButtons/BackButton" to="." method="_on_back_button_up"]

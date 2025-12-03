@@ -2,9 +2,9 @@ extends Button
 class_name NewParticipantButton
 
 var list_label_entry = preload("res://list_label_entry.tscn")
-@export var character_select_menu : SelectMenu
-@export var main_container : Control
-@export var lower_buttons : Control
+@onready var character_select_menu = $"../../../../../CharacterSelectMenu"
+@onready var main_container = $"../../../.."
+@onready var lower_buttons = $"../../../../../LowerButtons"
 
 func _on_button_up():
 	switch_menus()

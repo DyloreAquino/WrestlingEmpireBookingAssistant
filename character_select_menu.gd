@@ -5,9 +5,12 @@ func _ready():
 	populate_buttons()
 
 func populate_buttons():
+	CharacterDataManager.load_json()
 	var characters = CharacterDataManager.characters
 	
 	for division in flow_containers.keys():
+		for c in flow_containers[division].get_children():
+			c.queue_free()
 		for id in characters.keys():
 			if characters[id]["alignment"] == str(division):
 				var label = str(characters[id]["first_name"] + " " + characters[id]["last_name"])
@@ -23,7 +26,10 @@ func get_color(character : Dictionary):
 		if character["gender"] == "Female":
 			return Color.FIREBRICK
 		return Color.REBECCA_PURPLE
-	elif character["alignment"] == "Referee":
+	elif character["alignment"] == "Referree":
 		return Color.DIM_GRAY
 	elif character["alignment"] == "Booker":
 		return Color.BLACK
+
+func _on_visibility_changed():
+	populate_buttons()

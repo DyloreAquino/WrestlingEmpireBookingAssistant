@@ -8,9 +8,9 @@ var match_list_entry_scene = preload("res://match_list_entry.tscn")
 @export var main_buttons_cont : Control
 
 func _ready():
-	update_match_list()
+	update_list()
 
-func update_match_list():
+func update_list():
 	MatchDataManager.load_json()
 	var matches = MatchDataManager.matches
 	

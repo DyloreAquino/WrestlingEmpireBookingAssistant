@@ -1,0 +1,256 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwhiomlg2adle"]
+
+[ext_resource type="Script" uid="uid://cymnujpqq0xk3" path="res://create_character_view.gd" id="1_imjda"]
+[ext_resource type="PackedScene" uid="uid://d3rqnl2rk864b" path="res://new_participant_button.tscn" id="2_4ssvl"]
+[ext_resource type="Script" uid="uid://dk01q6b54b2n4" path="res://gender_option.gd" id="2_8ihvp"]
+[ext_resource type="Script" uid="uid://d4ebd2jpvidvv" path="res://alignment_option.gd" id="3_yoygf"]
+[ext_resource type="PackedScene" uid="uid://dpfx083rbv1ih" path="res://character_select_menu.tscn" id="7_88ohd"]
+
+[sub_resource type="DPITexture" id="DPITexture_jst8o"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+base_scale = 5.0
+
+[sub_resource type="DPITexture" id="DPITexture_8vl2t"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
+"
+base_scale = 5.0
+
+[sub_resource type="DPITexture" id="DPITexture_imjda"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"2.333\"/><path fill=\"#1a1a1a\" fill-opacity=\".5\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+base_scale = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ij74j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0.31764707, 0.08235294, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7esd"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3647059, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CreateMatchView" type="Control" node_paths=PackedStringArray("first_name", "last_name", "gender_option", "alignment_option", "injured_check", "friends_input", "rivals_input", "teammates_input")]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_imjda")
+first_name = NodePath("ScrollContainer/VBoxContainer/HBoxContainer/FirstName")
+last_name = NodePath("ScrollContainer/VBoxContainer/HBoxContainer2/LastName")
+gender_option = NodePath("ScrollContainer/VBoxContainer/HBoxContainer3/GenderOption")
+alignment_option = NodePath("ScrollContainer/VBoxContainer/HBoxContainer4/AlignmentOption")
+injured_check = NodePath("ScrollContainer/VBoxContainer/HBoxContainer5/InjuredCheck")
+friends_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer6/FriendsInput")
+rivals_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer7/RivalsInput")
+teammates_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer8/TeammatesInput")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(1000, 1500)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_right = 500.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 300)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "NEW 	CHARACTER"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "First Name:"
+
+[node name="FirstName" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Input here..."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Last Name:"
+
+[node name="LastName" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Input here..."
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Gender:
+"
+
+[node name="GenderOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+script = ExtResource("2_8ihvp")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Alignment:"
+
+[node name="AlignmentOption" type="OptionButton" parent="ScrollContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+script = ExtResource("3_yoygf")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Injured:"
+
+[node name="InjuredCheck" type="CheckBox" parent="ScrollContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_icons/checked = SubResource("DPITexture_jst8o")
+theme_override_icons/unchecked = SubResource("DPITexture_8vl2t")
+theme_override_icons/checked_disabled = SubResource("DPITexture_imjda")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Friends:"
+
+[node name="FriendsInput" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="NewParticipantButton" parent="ScrollContainer/VBoxContainer/HBoxContainer6/FriendsInput" instance=ExtResource("2_4ssvl")]
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Rivals:"
+
+[node name="RivalsInput" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+
+[node name="NewParticipantButton" parent="ScrollContainer/VBoxContainer/HBoxContainer7/RivalsInput" instance=ExtResource("2_4ssvl")]
+layout_mode = 2
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Teammates:"
+
+[node name="TeammatesInput" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+
+[node name="NewParticipantButton" parent="ScrollContainer/VBoxContainer/HBoxContainer8/TeammatesInput" instance=ExtResource("2_4ssvl")]
+layout_mode = 2
+
+[node name="CharacterSelectMenu" parent="." instance=ExtResource("7_88ohd")]
+visible = false
+layout_mode = 1
+
+[node name="LowerButtons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LowerButtons"]
+layout_mode = 2
+
+[node name="DiscardButton" type="Button" parent="LowerButtons/HBoxContainer"]
+custom_minimum_size = Vector2(540, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "DISCARD"
+
+[node name="SaveButton" type="Button" parent="LowerButtons/HBoxContainer"]
+custom_minimum_size = Vector2(540, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_ij74j")
+text = "SAVE"
+
+[node name="BackButton" type="Button" parent="LowerButtons"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_a7esd")
+text = "BACK"
+
+[connection signal="button_up" from="LowerButtons/HBoxContainer/DiscardButton" to="." method="_on_discard_button_up"]
+[connection signal="button_up" from="LowerButtons/HBoxContainer/SaveButton" to="." method="_on_save_button_up"]
+[connection signal="button_up" from="LowerButtons/BackButton" to="." method="_on_back_button_up"]

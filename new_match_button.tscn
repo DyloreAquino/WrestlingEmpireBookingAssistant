@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dolkd3wk2015l"]
+
+[ext_resource type="Script" uid="uid://c2mq5n7txulix" path="res://new_match_button.gd" id="1_idfl4"]
+
+[node name="NewMatchButton" type="Button"]
+custom_minimum_size = Vector2(0, 120)
+offset_right = 150.0
+offset_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "NEW
+"
+script = ExtResource("1_idfl4")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

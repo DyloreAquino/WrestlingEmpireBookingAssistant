@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqwxcpeebhe48"]
+
+[ext_resource type="PackedScene" uid="uid://s4g267ocutf5" path="res://select_menu.tscn" id="1_r8suo"]
+[ext_resource type="Script" uid="uid://lxita1fkp7rj" path="res://match_select_menu.gd" id="2_stfdv"]
+[ext_resource type="PackedScene" uid="uid://ymcwjwgk4ppi" path="res://select_button.tscn" id="3_5f8hv"]
+
+[node name="MatchSelectMenu" instance=ExtResource("1_r8suo")]
+script = ExtResource("2_stfdv")
+
+[node name="Division" parent="ScrollContainer/VBoxContainer" index="0"]
+visible = false
+
+[node name="Matches" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Matches" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Available Matches"
+
+[node name="FlowContainer" type="HFlowContainer" parent="ScrollContainer/VBoxContainer/Matches" index="1"]
+custom_minimum_size = Vector2(1005, 0)
+layout_mode = 2
+
+[node name="SelectButton" parent="ScrollContainer/VBoxContainer/Matches/FlowContainer" index="0" instance=ExtResource("3_5f8hv")]
+layout_mode = 2
+text = "Option"

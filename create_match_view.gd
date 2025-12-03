@@ -11,6 +11,12 @@ func reset_inputs():
 		for child in input.get_children():
 			if child is not Button and child is not Label:
 				child.queue_free()
+	for c in participant_input.get_children():
+		c.queue_free()
+	var new_part_but = preload("res://new_participant_button.tscn").instantiate()
+	var new_enemy_but = preload("res://new_enemy_button.tscn").instantiate()
+	participant_input.add_child(new_part_but)
+	participant_input.add_child(new_enemy_but)
 	match_type_option.selected = 0
 
 func go_back():
@@ -20,7 +26,7 @@ func go_back():
 	get_parent().get_node_or_null("MainContainer").visible = true
 	get_parent().get_parent().get_node_or_null("MainButtonsContainer").visible = true
 	
-	get_parent().update_match_list()
+	get_parent().update_list()
 
 func save_entry():
 	var new_match = MatchDataManager.new_match_template()
@@ -31,7 +37,8 @@ func save_entry():
 		if participant_entry is ListLabelEntry:
 			team.append(participant_entry.selection)
 		elif participant_entry is Button:
-			participants.append(team.duplicate())
+			if team:
+				participants.append(team.duplicate())
 			team.clear()
 	
 	new_match["participants"] = participants

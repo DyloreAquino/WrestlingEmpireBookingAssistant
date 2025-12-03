@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://beo44l3bbxwyq"]
+
+[ext_resource type="Script" uid="uid://b8vxa1l0fknwe" path="res://show_list_view.gd" id="1_owftd"]
+[ext_resource type="PackedScene" uid="uid://3tbqxdppnu2x" path="res://create_show_view.tscn" id="2_owftd"]
+
+[node name="ShowListView" type="Control" node_paths=PackedStringArray("main_cont", "main_vbox", "create_show_view")]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1600.0
+grow_horizontal = 2
+script = ExtResource("1_owftd")
+main_cont = NodePath("MainContainer")
+main_vbox = NodePath("MainContainer/VBoxContainer")
+create_show_view = NodePath("CreateShowView")
+
+[node name="MainContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(800, 1600)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -404.0
+offset_top = 80.0
+offset_right = 404.0
+offset_bottom = 1680.0
+grow_horizontal = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="MainContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "NEW SHOW"
+
+[node name="CreateShowView" parent="." instance=ExtResource("2_owftd")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_up" from="MainContainer/VBoxContainer/Button" to="." method="_on_button_button_up"]
