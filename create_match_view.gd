@@ -1,5 +1,6 @@
 extends Control
 
+@export var title_input : LineEdit
 @export var participant_input : Control
 @export var match_type_option : OptionButton
 @export var stipulation_input : Control
@@ -15,6 +16,7 @@ func reset_inputs():
 		c.queue_free()
 	var new_part_but = preload("res://new_participant_button.tscn").instantiate()
 	var new_enemy_but = preload("res://new_enemy_button.tscn").instantiate()
+	title_input.text = ""
 	participant_input.add_child(new_part_but)
 	participant_input.add_child(new_enemy_but)
 	match_type_option.selected = 0
@@ -31,6 +33,8 @@ func go_back():
 func save_entry():
 	var new_match = MatchDataManager.new_match_template()
 	
+	new_match["title"] = title_input.text
+	
 	var participants = []
 	var team = []
 	for participant_entry in participant_input.get_children():
@@ -42,7 +46,6 @@ func save_entry():
 			team.clear()
 	
 	new_match["participants"] = participants
-	print(participants)
 	
 	new_match["match_type"] = match_type_option.get_item_text(match_type_option.selected)
 	

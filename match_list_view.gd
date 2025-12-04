@@ -24,6 +24,7 @@ func update_list():
 		var new_match_list_entry : MatchListEntry = match_list_entry_scene.instantiate()
 		new_match_list_entry.match_id = match_id
 		new_match_list_entry.populate_labels(
+			matches[match_id]['title'],
 			matches[match_id]['participants'],
 			matches[match_id]['stipulations'],
 			matches[match_id]['championships'],

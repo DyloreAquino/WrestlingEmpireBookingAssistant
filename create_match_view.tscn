@@ -32,13 +32,14 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="CreateMatchView" type="Control" node_paths=PackedStringArray("participant_input", "match_type_option", "stipulation_input", "championship_input")]
+[node name="CreateMatchView" type="Control" node_paths=PackedStringArray("title_input", "participant_input", "match_type_option", "stipulation_input", "championship_input")]
 custom_minimum_size = Vector2(1080, 1920)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("1_ij74j")
+title_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer5/Title")
 participant_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer/Input")
 match_type_option = NodePath("ScrollContainer/VBoxContainer/HBoxContainer2/MatchTypeOption")
 stipulation_input = NodePath("ScrollContainer/VBoxContainer/HBoxContainer3/Input")
@@ -67,6 +68,22 @@ theme_override_font_sizes/font_size = 100
 text = "NEW MATCH"
 vertical_alignment = 1
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Title"
+
+[node name="Title" type="LineEdit" parent="ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Optional..."
+
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
@@ -81,11 +98,8 @@ text = "Participants:"
 [node name="Input" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="NewParticipantButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/Input" node_paths=PackedStringArray("character_select_menu", "main_container", "lower_buttons") instance=ExtResource("2_ij74j")]
+[node name="NewParticipantButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/Input" instance=ExtResource("2_ij74j")]
 layout_mode = 2
-character_select_menu = NodePath("../../../../../CharacterSelectMenu")
-main_container = NodePath("../../../..")
-lower_buttons = NodePath("../../../../../LowerButtons")
 
 [node name="NewEnemyButton" parent="ScrollContainer/VBoxContainer/HBoxContainer/Input" instance=ExtResource("3_a7esd")]
 layout_mode = 2

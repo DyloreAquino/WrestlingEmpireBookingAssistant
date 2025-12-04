@@ -18,5 +18,25 @@
 		},
 		"title": "SMACKDOWN",
 		"type": "TV Broadcast"
+	},
+	"4": {
+		"finished": false,
+		"matches": [],
+		"schedule": {
+			"month": "January",
+			"week": "1"
+		},
+		"title": "SKIBIDI",
+		"type": "TV Broadcast"
+	},
+	"5": {
+		"finished": false,
+		"matches": [],
+		"schedule": {
+			"month": "April",
+			"week": "2"
+		},
+		"title": "Ababie Wicka Show",
+		"type": "PPV"
 	}
 }

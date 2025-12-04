@@ -49,6 +49,7 @@ func delete(id):
 
 func new_match_template() -> Dictionary:
 	return {
+		"title" : "",
 		"participants": [],
 		"show_id" : -1,
 		"match_type" : "Singles",

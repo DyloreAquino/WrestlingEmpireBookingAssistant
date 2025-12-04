@@ -10,8 +10,11 @@ var match_id = null
 func _ready():
 	pass
 
-func populate_labels(participants, stipulations, championships):
-	participants_label.text = format_participants(participants)
+func populate_labels(title, participants, stipulations, championships):
+	if title != "":
+		participants_label.text =  title
+	else:
+		participants_label.text = format_participants(participants)
 	stipulations_label.text = format_stipulations(stipulations)
 	championships_label.text = format_championships(championships)
 
@@ -21,7 +24,11 @@ func format_participants(participants : Array):
 		var team_names = []
 		for character_id in team:
 			var character_name = CharacterDataManager.get_character(character_id)["last_name"]
-			team_names.append(character_name)
+			if character_name != "":
+				team_names.append(character_name)
+			else:
+				character_name = CharacterDataManager.get_character(character_id)["first_name"]
+				team_names.append(character_name)
 		names.append(team_names)
 	var result = []
 	for team in names:

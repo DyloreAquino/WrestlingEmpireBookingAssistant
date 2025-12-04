@@ -13,7 +13,11 @@ func populate_buttons():
 			c.queue_free()
 		for id in matches.keys():
 			if matches[id]["winner"].size() == 0:
-				var label = format_participants(matches[id]["participants"])
+				var label = ""
+				if matches[id]["title"] == "":
+					label = format_participants(matches[id]["participants"])
+				else:
+					label = matches[id]["title"]
 				var color = Color.DIM_GRAY
 				add_select_button(id, division, label, color)
 
@@ -23,7 +27,11 @@ func format_participants(participants : Array):
 		var team_names = []
 		for character_id in team:
 			var character_name = CharacterDataManager.get_character(character_id)["last_name"]
-			team_names.append(character_name)
+			if character_name != "":
+				team_names.append(character_name)
+			else:
+				character_name = CharacterDataManager.get_character(character_id)["first_name"]
+				team_names.append(character_name)
 		names.append(team_names)
 	var result = []
 	for team in names:

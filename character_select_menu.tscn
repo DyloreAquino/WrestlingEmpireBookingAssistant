@@ -56,5 +56,3 @@ layout_mode = 2
 
 [node name="Division" parent="ScrollContainer/VBoxContainer" index="4"]
 visible = false
-
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

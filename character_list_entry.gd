@@ -7,9 +7,8 @@ var character_id = null
 
 func populate_labels(first_name, last_name, gender, alignment):
 	button.text = format_name(first_name, last_name)
-	var new_style_box = StyleBoxFlat.new()
-	new_style_box.bg_color = get_color(gender, alignment)
-	add_theme_stylebox_override("panel", new_style_box)
+	var color = get_color(gender, alignment)
+	$HBoxContainer/TextureRect.modulate = color
 
 func format_name(first_name, last_name):
 	return first_name + " " + last_name

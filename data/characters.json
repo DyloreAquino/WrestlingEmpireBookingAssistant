@@ -19,6 +19,20 @@
 		"rivals": [],
 		"teammates": []
 	},
+	"11": {
+		"alignment": "Face",
+		"first_name": "Ababie",
+		"friends": [
+			"10"
+		],
+		"gender": "Female",
+		"injured": false,
+		"last_name": "Wicka",
+		"rivals": [
+			"3"
+		],
+		"teammates": []
+	},
 	"2": {
 		"alignment": "Heel",
 		"first_name": "Seth",
